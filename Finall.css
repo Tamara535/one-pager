@@ -1,0 +1,103 @@
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: linear-gradient(135deg, #61878a, #3a8fac, #05415a);
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+  
+  .container {
+    margin-top: 5vh;
+  }
+  
+  h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #b4f2f9;
+    text-shadow: 0 0 10px rgba(20, 35, 117, 0.8), 0 0 20px rgba(0, 21, 113, 0.5);
+  }
+  
+  
+  .coin-container {
+    perspective: 6000px;
+  }
+  
+  .coin {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    margin: 50px auto;
+    transform: rotateY(0);
+    transition: transform 1.5s cubic-bezier(0.42, 0, 0.58, 1);
+    border-radius: 50%;
+  }
+  
+  .coin::after {
+    content: "Heads";
+    position: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.1));
+    z-index: -1;
+  }
+  
+  .side {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    backface-visibility: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%; 
+  }
+  
+  .tails {
+    transform: rotateY(180deg);
+  }
+  
+  
+  button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    background: #0c0049;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+  
+  button:hover {
+    background: #ffa500;
+    transform: scale(1.1);
+  }
+  
+  button:active {
+    transform: scale(1);
+  }
+  
+  
+  #resultMessage {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #00c8ff;
+    text-shadow: 0 0 5px rgba(35, 65, 105, 0.7), 0 0 15px rgba(255, 215, 0, 0.5);
+  }
+  
+  
+  
+  
