@@ -3,36 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3D Realistic Coin Flip</title>
+  <title>Interactive Coin Flip</title>
   <link rel="stylesheet" href="Finall.css">
 </head>
 <body>
   <div class="container">
-    <h1>Flip a Real 3D Coin</h1>
+    <h1>Interactive Coin Flip</h1>
     <div class="coin-container">
       <div class="coin" id="coin">
-        
-        </div>
+        <div class="coin-side heads">Heads</div>
+        <div class="coin-side tails">Tails</div>
       </div>
     </div>
     <button id="flipButton">Flip the Coin</button>
-    <p id="resultMessage">Let’s see what you get!</p>
-    <audio id="flipSound" src="coin sound.m4a"></audio>
-    <div class="statistics">
-      <h2>Statistics</h2>
-      <p>Total Flips: <span id="totalFlips">0</span></p>
-      <p>Heads: <span id="headsCount">0</span> (<span id="headsPercentage">0</span>%)</p>
-      <p>Tails: <span id="tailsCount">0</span> (<span id="tailsPercentage">0</span>%)</p>
+    <p id="quoteMessage">Click the button to see what the coin has to say!</p>
+    <div id="stats">
+      <div class="stat">
+        <span id="headsCount" class="count">0</span>
+        <p>Heads</p>
+      </div>
+      <div class="stat">
+        <span id="tailsCount" class="count">0</span>
+        <p>Tails</p>
+      </div>
     </div>
-  </div>
-  <div class="statistics">
-    <h2>Flip Statistics</h2>
-    <div id="statsDisplay"></div>
+    <button id="modeToggle">Toggle Dark Mode</button>
   </div>
   <script src="Finalll.js"></script>
 </body>
 </html>
-
-
-
-

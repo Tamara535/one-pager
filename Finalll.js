@@ -1,64 +1,50 @@
-
 const coin = document.getElementById("coin");
 const flipButton = document.getElementById("flipButton");
-const resultMessage = document.getElementById("resultMessage");
-const statsDisplay = document.getElementById("statsDisplay");
+const quoteMessage = document.getElementById("quoteMessage");
+const headsCountDisplay = document.getElementById("headsCount");
+const tailsCountDisplay = document.getElementById("tailsCount");
+const modeToggle = document.getElementById("modeToggle");
 
+let headsCount = 0;
+let tailsCount = 0;
 
-const shapes = [
-  { name: "circle", style: "border-radius: 50%;" },
-  { name: "square", style: "border-radius: 0;" },
-  { name: "rounded square", style: "border-radius: 20%;" },
-  { name: "oval", style: "border-radius: 50% / 25%;" },
-  { name: "triangle", style: "clip-path: polygon(50% 0%, 0% 100%, 100% 100%);" },
-];
+flipButton.addEventListener("click", flipCoin);
+modeToggle.addEventListener("click", toggleMode);
 
+function flipCoin() {
+  // Disable button during animation
+  flipButton.disabled = true;
 
-const stats = {
-  circle: { heads: 0, tails: 0 },
-  square: { heads: 0, tails: 0 },
-  "rounded square": { heads: 0, tails: 0 },
-  oval: { heads: 0, tails: 0 },
-  triangle: { heads: 0, tails: 0 },
-};
-
-
-flipButton.addEventListener("click", () => {
- 
+  // Randomly decide if it's heads or tails
   const isHeads = Math.random() < 0.5;
 
-  
-  const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
-  coin.style.cssText += randomShape.style; 
+  // Generate random rotations for the flip
+  const xRotations = Math.floor(Math.random() * 6 + 3) * 360; // 3-8 full rotations
+  const yRotations = isHeads
+    ? Math.floor(Math.random() * 6 + 3) * 360
+    : Math.floor(Math.random() * 6 + 3) * 360 + 180; // Extra 180° for tails
 
-  
-  const randomSpins = Math.floor(Math.random() * 5 + 3) * 360; 
-  coin.style.transform = `rotateY(${randomSpins + (isHeads ? 0 : 180)}deg)`; // Heads or tails
+  // Apply the 3D rotation
+  coin.style.transform = `rotateX(${xRotations}deg) rotateY(${yRotations}deg)`;
 
-  const shapeName = randomShape.name;
-  if (isHeads) {
-    stats[shapeName].heads++;
-  } else {
-    stats[shapeName].tails++;
-  }
-
-  
+  // Wait for the animation to finish before updating stats and enabling the button
   setTimeout(() => {
-    resultMessage.textContent = isHeads ? "It's Heads!" : "It's Tails!";
-    resultMessage.style.color = isHeads ? "#FFD700" : "#FF4500"; 
+    if (isHeads) {
+      headsCount++;
+      headsCountDisplay.textContent = headsCount;
+      quoteMessage.textContent = "Heads: The web connects us all.";
+    } else {
+      tailsCount++;
+      tailsCountDisplay.textContent = tailsCount;
+      quoteMessage.textContent = "Tails: Create, connect, and collaborate.";
+    }
 
-   
-    updateStatsDisplay();
-  }, 1500); 
-});
+    // Re-enable the button after animation
+    flipButton.disabled = false;
+  }, 2000); // Match the duration of the flip animation
+}
 
-
-function updateStatsDisplay() {
-  statsDisplay.innerHTML = ""; 
-  for (const shape in stats) {
-    const { heads, tails } = stats[shape];
-    const statElement = document.createElement("p");
-    statElement.textContent = `${shape.toUpperCase()}: Heads: ${heads}, Tails: ${tails}`;
-    statsDisplay.appendChild(statElement);
-  }
+function toggleMode() {
+  document.body.classList.toggle("dark");
+  document.querySelector(".container").classList.toggle("dark");
 }

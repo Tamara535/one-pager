@@ -1,282 +1,134 @@
-body {
-  font-family: 'Poppins', sans-serif;
+/* Reset */
+* {
   margin: 0;
   padding: 0;
-  text-align: center;
-  background: linear-gradient(135deg, #e8faff, #b8e4ff, #a4d7f7);
-  color: #333333;
-  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
+/* Body Styling */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background 0.3s ease-in-out;
+  color: #333;
+}
+
+/* Dark Mode */
+body.dark {
+  background: linear-gradient(to bottom right, #141E30, #243B55);
+  color: #eee;
+}
+
+/* Container Styling */
 .container {
-  margin-top: 5vh;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
 }
 
+.container.dark {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Title */
 h1 {
-  font-size: 3em;
   margin-bottom: 20px;
-  color: #4a90e2;
-  text-shadow: 0 0 10px rgba(74, 144, 226, 0.3), 0 0 20px rgba(74, 144, 226, 0.2);
+  font-size: 2rem;
+  color: #444;
 }
 
+/* Coin Styling */
 .coin-container {
-  perspective: 6000px;
+  perspective: 1000px;
+  margin: 20px auto;
+  width: 200px;
+  height: 200px;
 }
 
 .coin {
-  width: 200px;
-  height: 200px;
-  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(to top, #f7c08a, #ec7357);
   transform-style: preserve-3d;
-  margin: 50px auto;
-  transform: rotateY(0);
-  transition: transform 1.5s cubic-bezier(0.42, 0, 0.58, 1);
-  border-radius: 50%;
-  background: radial-gradient(circle, #f3f9ff, #d6ecff);
+  transition: transform 1.5s ease;
 }
 
-.coin::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.1));
-  z-index: -1;
-}
-
-.side {
+.coin-side {
   position: absolute;
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   backface-visibility: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
 }
 
-.side img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+.heads {
+  background: linear-gradient(to top, #ff7e5f, #feb47b);
 }
 
 .tails {
+  background: linear-gradient(to top, #43cea2, #185a9d);
   transform: rotateY(180deg);
 }
 
+/* Buttons */
 button {
-  padding: 15px 30px;
-  font-size: 1.2em;
-  background: #4a90e2;
-  color: #ffffff;
+  background: linear-gradient(to right, #43cea2, #185a9d);
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
   border: none;
-  border-radius: 25px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+  margin: 10px 0;
+  transition: transform 0.2s, background 0.3s;
 }
 
 button:hover {
-  background: #66b3ff;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 button:active {
-  transform: scale(1);
+  transform: scale(0.95);
 }
 
-#resultMessage {
-  font-size: 1.5em;
+#modeToggle {
+  background: linear-gradient(to right, #555, #999);
+}
+
+/* Stats Section */
+#stats {
+  display: flex;
+  justify-content: space-around;
   margin-top: 20px;
-  color: #4a90e2;
-  text-shadow: 0 0 5px rgba(74, 144, 226, 0.5), 0 0 15px rgba(74, 144, 226, 0.3);
 }
 
-.statistics {
-  margin-top: 30px;
-  padding: 20px;
-  border: 1px solid #b8e4ff;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.stat {
+  text-align: center;
 }
 
-.statistics h2 {
-  font-size: 1.8em;
-  color: #4a90e2;
-  text-shadow: 0 0 5px rgba(74, 144, 226, 0.3), 0 0 10px rgba(74, 144, 226, 0.2);
-}
-
-.statistics p {
-  font-size: 1.2em;
-  margin: 10px 0;
-  color: #333333;
-}
-
-.coin {
-  width: 200px;
-  height: 200px;
-  position: relative;
-  transform-style: preserve-3d;
-  margin: 50px auto;
-  transform: rotateY(0);
-  transition: transform 1.5s cubic-bezier(0.42, 0, 0.58, 1);
-  border-radius: 50%;
-  background: radial-gradient(circle at center, #e6e6e6, #cccccc, #999999);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  border: 5px solid #b3b3b3;
-}
-.side {
-  background: url('coin-texture.png') center/cover, radial-gradient(circle, #d9d9d9, #c2c2c2);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-.coin {
-  border: 8px solid #e6e6e6;
-  border-radius: 50%;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3), 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-@keyframes shine {
-  0% {
-      background-position: -100px 0;
-  }
-  100% {
-      background-position: 300px 0;
-  }
-}
-
-.coin {
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.5), transparent, rgba(255, 255, 255, 0.5));
-  background-size: 200px 200px;
-  animation: shine 2s linear infinite;
-}
-.side {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2em;
+.count {
+  font-size: 2rem;
   font-weight: bold;
-  color: #666666;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  color: #444;
+  margin-bottom: 5px;
 }
 
-.heads::before {
-  content: "★ HEADS ★";
-}
-
-.tails::before {
-  content: "☆ TAILS ☆";
-}
-.side {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2em;
-  font-weight: bold;
-  color: #666666;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.heads::before {
-  content: "★ HEADS ★";
-  transform: translateY(-10px) scale(1.2);
-}
-
-.tails::before {
-  content: "☆ TAILS ☆";
-  transform: translateY(10px) scale(1.1);
-}
-
-.heads::before {
-  content: "★ HEADS ★";
-  margin-top: 10px; 
-  padding: 5px; 
-}
-
-.tails::before {
-  content: "☆ TAILS ☆";
-  margin-bottom: 10px; 
-}
-
-.coin {
-  width: 200px;
-  height: 200px;
-  position: relative;
-  transform-style: preserve-3d;
-  margin: 50px auto;
-  transform: rotateY(0);
-  transition: transform 1.5s cubic-bezier(0.42, 0, 0.58, 1), border-radius 0.5s ease;
-}
-
-.side {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.heads {
-  background: #f8b400;
-}
-
-.tails {
-  background: #0078d7;
-  transform: rotateY(180deg);
-}
-.coin {
-  width: 200px;
-  height: 200px;
-  position: relative;
-  transform-style: preserve-3d;
-  margin: 50px auto;
-  transform: rotateY(0); 
-  transition: transform 1.5s cubic-bezier(0.42, 0, 0.58, 1), 
-              border-radius 0.5s ease, 
-              clip-path 0.5s ease; 
-  border-radius: 50%; 
-  background: radial-gradient(circle, #e6e6e6, #cccccc); 
-}
-
-.side {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); 
-}
-
-.heads {
-  background: #f8b400; 
-}
-
-.tails {
-  background: #0078d7; 
-  transform: rotateY(180deg); 
-}
-.statistics {
-  margin-top: 30px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  color: #ffffff;
-  text-align: left;
-  width: 80%;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.statistics h2 {
-  font-size: 1.8em;
-  margin-bottom: 10px;
-  color: #ffd700;
-}
-
-#statsDisplay p {
-  margin: 5px 0;
-  font-size: 1.2em;
+body.dark .count {
+  color: #eee;
 }
