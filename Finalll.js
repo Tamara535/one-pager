@@ -32,11 +32,11 @@ function flipCoin() {
     if (isHeads) {
       headsCount++;
       headsCountDisplay.textContent = headsCount;
-      quoteMessage.textContent = "Heads: The web connects us all.";
+      quoteMessage.textContent = "Heads: The internet connects us all.";
     } else {
       tailsCount++;
       tailsCountDisplay.textContent = tailsCount;
-      quoteMessage.textContent = "Tails: Create, connect, and collaborate.";
+      quoteMessage.textContent = "Tails: Embrace creativity and collaboration.";
     }
 
     // Re-enable the button after animation

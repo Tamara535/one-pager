@@ -8,27 +8,37 @@
 </head>
 <body>
   <div class="container">
-    <h1>Interactive Coin Flip</h1>
-    <div class="coin-container">
-      <div class="coin" id="coin">
-        <div class="coin-side heads">Heads</div>
-        <div class="coin-side tails">Tails</div>
+    <header>
+      <h1>Interactive Coin Flip</h1>
+      <p>Engage with a realistic coin flip and discover thought-provoking insights.</p>
+    </header>
+
+    <section class="coin-flip">
+      <div class="coin-container">
+        <div class="coin" id="coin">
+          <div class="coin-side heads">Heads</div>
+          <div class="coin-side tails">Tails</div>
+        </div>
       </div>
-    </div>
-    <button id="flipButton">Flip the Coin</button>
-    <p id="quoteMessage">Click the button to see what the coin has to say!</p>
-    <div id="stats">
+      <button id="flipButton">Flip the Coin</button>
+      <p id="quoteMessage">Click to flip the coin and reveal an insight.</p>
+    </section>
+
+    <section class="stats">
       <div class="stat">
-        <span id="headsCount" class="count">0</span>
+        <h2 id="headsCount">0</h2>
         <p>Heads</p>
       </div>
       <div class="stat">
-        <span id="tailsCount" class="count">0</span>
+        <h2 id="tailsCount">0</h2>
         <p>Tails</p>
       </div>
-    </div>
+    </section>
+
     <button id="modeToggle">Toggle Dark Mode</button>
   </div>
+
   <script src="Finalll.js"></script>
 </body>
 </html>
+
