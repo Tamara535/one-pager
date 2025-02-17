@@ -1,63 +1,93 @@
-/* Reset and Base Styles */
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
 
 body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom right, #fbc2eb, #a6c1ee);
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   min-height: 100vh;
-  background: linear-gradient(to bottom right, #f3f4f6, #dbeafe);
-  color: #333;
   transition: background 0.3s ease-in-out;
+  color: #333;
 }
 
 body.dark {
-  background: linear-gradient(to bottom right, #1e293b, #334155);
+  background: linear-gradient(to bottom right, #141E30, #243B55);
   color: #eee;
 }
 
-/* Container */
-.container {
-  background: rgba(255, 255, 255, 0.9);
+/* Intro Section */
+.intro-container {
+  margin-bottom: 40px;
   padding: 30px;
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   width: 90%;
   max-width: 500px;
   transition: background 0.3s ease;
 }
 
-.container.dark {
-  background: rgba(0, 0, 0, 0.85);
-}
-
-/* Header */
-header h1 {
+.intro-container h2 {
   font-size: 2rem;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
+  color: #444;
 }
 
-header p {
+.intro-container p {
   font-size: 1rem;
-  color: #666;
+  line-height: 1.6;
+  color: #333;
 }
 
-body.dark header p {
-  color: #bbb;
+body.dark .intro-container {
+  background: rgba(0, 0, 0, 0.8);
+  color: #eee;
 }
 
-/* Coin Section */
+body.dark .intro-container h2 {
+  color: #ddd;
+}
+
+body.dark .intro-container p {
+  color: #ccc;
+}
+
+/* Main Container */
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease;
+}
+
+.container.dark {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #444;
+}
+
+/* Coin Styling */
 .coin-container {
   perspective: 1000px;
   margin: 20px auto;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
 }
 
 .coin {
@@ -78,7 +108,7 @@ body.dark header p {
   justify-content: center;
   align-items: center;
   backface-visibility: hidden;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: white;
 }
@@ -92,16 +122,16 @@ body.dark header p {
   transform: rotateY(180deg);
 }
 
-/* Buttons */
+/* Button Styling */
 button {
-  background: linear-gradient(to right, #2563eb, #1e40af);
-  padding: 12px 20px;
+  background: linear-gradient(to right, #43cea2, #185a9d);
+  padding: 10px 20px;
   font-size: 1rem;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
-  margin: 15px 0;
+  margin: 10px 0;
   transition: transform 0.2s, background 0.3s;
 }
 
@@ -117,8 +147,7 @@ button:active {
   background: linear-gradient(to right, #555, #999);
 }
 
-/* Statistics */
-.stats {
+#stats {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
@@ -126,27 +155,16 @@ button:active {
 
 .stat {
   text-align: center;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 10px;
-  border-radius: 10px;
-  width: 40%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.stat h2 {
+.count {
   font-size: 2rem;
+  font-weight: bold;
   color: #444;
+  margin-bottom: 5px;
 }
 
-.stat p {
-  font-size: 1rem;
-}
-
-body.dark .stat {
-  background: rgba(0, 0, 0, 0.7);
-}
-
-body.dark .stat h2 {
+body.dark .count {
   color: #eee;
 }
 

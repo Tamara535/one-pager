@@ -7,13 +7,25 @@
   <link rel="stylesheet" href="Finall.css">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Interactive Coin Flip</h1>
-      <p>Engage with a realistic coin flip and discover thought-provoking insights.</p>
-    </header>
 
-    <section class="coin-flip">
+  <!-- Intro Section -->
+  <div class="intro-container">
+    <section class="project-details-banner">
+      <h2>About the Interactive Coin Flip</h2>
+      <p>
+        This interactive coin flip website was designed to provide users with an engaging and visually appealing experience. I implemented a realistic coin-flipping animation using CSS and JavaScript to simulate a 3D rotation, creating a dynamic and immersive visual effect. The project includes randomized outcomes, revealing thought-provoking insights for both "Heads" and "Tails" results.
+      </p>
+      <p>
+        I designed a sleek, professional layout with a card-based structure to enhance readability and ensure a balanced, modern UI. Additionally, I incorporated a dark mode feature, enabling users to toggle between light and dark themes seamlessly. The website is fully responsive, with optimized transitions and animations for smooth interaction across different devices.
+      </p>
+    </section>
+  </div>
+
+  <!-- Main Coin Flip Section -->
+  <div class="container">
+    <h1>Interactive Coin Flip</h1>
+
+    <div class="coin-section" id="coinSection">
       <div class="coin-container">
         <div class="coin" id="coin">
           <div class="coin-side heads">Heads</div>
@@ -21,19 +33,19 @@
         </div>
       </div>
       <button id="flipButton">Flip the Coin</button>
-      <p id="quoteMessage">Click to flip the coin and reveal an insight.</p>
-    </section>
+      <p id="quoteMessage">Click the button to see what the coin has to say!</p>
 
-    <section class="stats">
-      <div class="stat">
-        <h2 id="headsCount">0</h2>
-        <p>Heads</p>
+      <div id="stats">
+        <div class="stat">
+          <span id="headsCount" class="count">0</span>
+          <p>Heads</p>
+        </div>
+        <div class="stat">
+          <span id="tailsCount" class="count">0</span>
+          <p>Tails</p>
+        </div>
       </div>
-      <div class="stat">
-        <h2 id="tailsCount">0</h2>
-        <p>Tails</p>
-      </div>
-    </section>
+    </div>
 
     <button id="modeToggle">Toggle Dark Mode</button>
   </div>
@@ -41,4 +53,3 @@
   <script src="Finalll.js"></script>
 </body>
 </html>
-
